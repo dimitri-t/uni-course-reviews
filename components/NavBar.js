@@ -1,32 +1,39 @@
 import {
   Box,
   Flex,
-  Button,
   Heading,
   useColorModeValue,
-  Stack,
+  Input,
   useColorMode,
   Container,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import ThemeToggleButton from './ThemeToggleBtn';
 
 export default function NavBar() {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <>
-      <Box as="nav" bg={useColorModeValue('#ffffff40', '#20202380')} px={80}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Logo</Box>
+      <Box
+        as="nav" 
+        position="fixed"
+        w="100%"
+      >
+        <Container
+          display="flex"
+          p={2}
+          maxW="container.md"
+          wrap="wrap"
+          align="center"
+          justify="space-between" 
+          alignItems="center"
+        >
+          <Heading as="h1" size="lg">
+            ReviewR
+          </Heading>
 
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
-            </Stack>
-          </Flex>
-        </Flex>
+          <Input mr="10" ml="10" placeholder='Search For a Course' />
+          
+          <ThemeToggleButton />
+
+        </Container>
       </Box>
-    </>
   );
 }
