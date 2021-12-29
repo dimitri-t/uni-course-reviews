@@ -1,11 +1,12 @@
 import { Container, Box, Heading } from '@chakra-ui/react';
+import Feed from '../components/Feed';
 
 const Page = () => {
   return (
     <Container>
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
-          <p>Leave a review</p>
+          <Feed />
         </Box>
       </Box>
     </Container>
