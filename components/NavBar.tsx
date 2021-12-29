@@ -2,9 +2,7 @@ import {
   Box,
   Flex,
   Heading,
-  useColorModeValue,
   Input,
-  useColorMode,
   Container,
 } from '@chakra-ui/react';
 import ThemeToggleButton from './ThemeToggleBtn';
