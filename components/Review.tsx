@@ -4,6 +4,9 @@ import { ReactElement } from "react";
 
 type reviewType = { date: string; author: string; dateCompleted: string; lecturer: string; difficulty: number; rating: number; review: string; }
 
+// TODO:
+// When a user presses the "Comments" button, a modal will popup, allowing users to see and add comments to the review
+
 const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, review}) => {
   return (
     <Box bg='white' borderWidth='1px' borderRadius='lg' shadow='md'>
