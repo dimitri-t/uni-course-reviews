@@ -1,5 +1,5 @@
 import { StarIcon, ChevronUpIcon, ChevronDownIcon, ChatIcon } from "@chakra-ui/icons";
-import { Box, Text, Divider, SimpleGrid, Button, ButtonGroup, IconButton, Center, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Text, Divider, SimpleGrid, Button, ButtonGroup, IconButton, Center, Flex, Spacer, useColorModeValue } from "@chakra-ui/react";
 import { ReactElement } from "react";
 
 type reviewType = { date: string; author: string; dateCompleted: string; lecturer: string; difficulty: number; rating: number; review: string; }
@@ -8,8 +8,9 @@ type reviewType = { date: string; author: string; dateCompleted: string; lecture
 // When a user presses the "Comments" button, a modal will popup, allowing users to see and add comments to the review
 
 const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, review}) => {
+  const boxBG = useColorModeValue('white', 'gray.600')
   return (
-    <Box bg='white' borderWidth='1px' borderRadius='lg' shadow='md'>
+    <Box bg={boxBG} borderWidth='1px' borderRadius='lg' shadow='md'>
       <Box padding="3">
         <Box> <Text fontSize='2xl' fontWeight='bold'>{author}</Text> </Box>
         <Box> <Text fontSize='lg' fontWeight='bold'>Review Created: {date}</Text> </Box>
@@ -21,12 +22,12 @@ const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, revi
           <Box><Text fontWeight="bold">Term/Year Completed:</Text><Text>{dateCompleted}</Text></Box>
           <Box>
             <Text fontWeight="bold">Difficulty:</Text>
-            {Array(5).fill('').map((_,i) => (<StarIcon key={i} color={i <= difficulty ? 'yellow.400': 'gray.300'}></StarIcon>))}
+            {Array(5).fill('').map((_,i) => (<StarIcon key={i} color={i < difficulty ? 'yellow.400': 'gray.300'}></StarIcon>))}
           </Box>
           <Box><Text fontWeight='bold'>Lecturer:</Text><Text>{lecturer}</Text></Box>
           <Box>
               <Text fontWeight="bold">Overall Rating:</Text>
-              {Array(5).fill('').map((_,i) => (<StarIcon key={i} color={i <= rating ? 'yellow.400': 'gray.300'}></StarIcon>))}
+              {Array(5).fill('').map((_,i) => (<StarIcon key={i} color={i < rating ? 'yellow.400': 'gray.300'}></StarIcon>))}
           </Box>
         </SimpleGrid>
       </Box>
@@ -46,7 +47,6 @@ const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, revi
         </ButtonGroup>
       </Flex>
     </Box>
-
   )
 }
 

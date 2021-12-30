@@ -22,7 +22,7 @@ const Feed = () => {
       'dateCompleted': 'Term 3, 2021',
       'lecturer': 'Stacy Smith',
       'difficulty': 5,
-      'rating': 5,
+      'rating': 1,
       'review': 'Bad course, dont do it'
     },
     {
