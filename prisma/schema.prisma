@@ -11,16 +11,21 @@ datasource db {
 }
 
 model Courses {
-  id         Int      @id @default(autoincrement())
-  courseName String
-  courseCode String
-  reviews    Review[]
+  id                Int            @id @default(autoincrement())
+  uni               String
+  courseName        String
+  courseCode        String
+  courseDescription String?
+  reviews           CourseReview[]
 }
 
-model Review {
-  id         Int      @id @default(autoincrement())
-  author     String
-  reviewText String
-  Courses    Courses? @relation(fields: [coursesId], references: [id])
-  coursesId  Int?
+model CourseReview {
+  id        Int      @id @default(autoincrement())
+  lecturer  String?
+  createdAt DateTime @default(now())
+  review    String
+  likes     Int      @default(0)
+  dislikes  Int      @default(0)
+  course    Courses  @relation(fields: [courseId], references: [id])
+  courseId  Int
 }
