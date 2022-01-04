@@ -13,13 +13,14 @@ datasource db {
 model Courses {
   id         Int      @id @default(autoincrement())
   courseName String
+  courseCode String
   reviews    Review[]
 }
 
 model Review {
-  id        Int      @id @default(autoincrement())
-  author    String
-  text      String
-  Courses   Courses? @relation(fields: [coursesId], references: [id])
-  coursesId Int?
+  id         Int      @id @default(autoincrement())
+  author     String
+  reviewText String
+  Courses    Courses? @relation(fields: [coursesId], references: [id])
+  coursesId  Int?
 }
