@@ -51,7 +51,7 @@ enum Uni {
 
 // TODO: Add types
 const Page = ({ initialReviews }) => {
-  const [uni, setUni] = useState(Uni.UNSW);
+  // const [uni, setUni] = useState(Uni.UNSW);
   const [reviews, setReviews] = useState(initialReviews);
 
   return (
