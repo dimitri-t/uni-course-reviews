@@ -1,21 +1,15 @@
 import { StarIcon, ChevronUpIcon, ChevronDownIcon, ChatIcon } from "@chakra-ui/icons";
 import { Box, Text, Divider, SimpleGrid, Button, ButtonGroup, IconButton, Center, Flex, Spacer, useColorModeValue } from "@chakra-ui/react";
+import { CourseReview } from "@prisma/client";
 import { ReactElement } from "react";
 
-type reviewType = { date: string; author: string; dateCompleted: string; lecturer: string; difficulty: number; rating: number; review: string; }
-
-// TODO:
-// When a user presses the "Comments" button, a modal will popup, allowing users to see and add comments to the review
-
-// Old props
-// date, author, dateCompleted, lecturer, difficulty, rating, review
-
-const Review = ({ author, reviewText }) => {
+const Review = ({ lecturer, review, likes, dislikes, courseId }: CourseReview) => {
+  console.log(lecturer, review, likes, dislikes, courseId);
   const boxBG = useColorModeValue('white', 'gray.600')
   return (
     <Box mt="5" bg={boxBG} borderWidth='1px' borderRadius='lg' shadow='md'>
       <Box padding="3">
-        <Box> <Text fontSize='2xl' fontWeight='bold'>{author}</Text> </Box>
+        <Box> <Text fontSize='2xl' fontWeight='bold'>hEY</Text> </Box>
         {/* <Box> <Text fontSize='lg' fontWeight='bold'>Review Created: {date}</Text> </Box> */}
       </Box>
       <Divider orientation='horizontal'></Divider>
@@ -37,9 +31,9 @@ const Review = ({ author, reviewText }) => {
       <Divider orientation='horizontal'></Divider>
 
       <Box padding='3'>
-        <Box ><Text>{reviewText}</Text></Box>
+        <Box ><Text>{review}</Text></Box>
       </Box>
-      
+
       {/* <Flex padding={3}>
         <Button leftIcon={<ChatIcon/>}>Comments</Button>
         <Spacer />
