@@ -9,9 +9,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
+  // Post request to add a new review for a course
   try {
     const reviewData = JSON.parse(req.body);
-    const savedReview = await prisma.review.create({
+    const savedReview = await prisma.courseReview.create({
       data: reviewData
     });
     res.status(200).json(savedReview);
