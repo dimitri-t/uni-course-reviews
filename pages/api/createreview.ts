@@ -15,9 +15,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const savedReview = await prisma.courseReview.create({
       data: reviewData
     });
-    res.status(200).json(savedReview);
+    res.status(200).json(savedReview); 
   } catch (err) {
     res.status(400).json({ message: 'Something went wrong' });
   }
-
 };
