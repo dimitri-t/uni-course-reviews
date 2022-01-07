@@ -3,8 +3,8 @@ import { Box, Text, Divider, SimpleGrid, Button, ButtonGroup, IconButton, Center
 import { CourseReview } from "@prisma/client";
 import { ReactElement } from "react";
 
-const Review = ({ lecturer, review, likes, dislikes, courseId }: CourseReview) => {
-  console.log(lecturer, review, likes, dislikes, courseId);
+const Review = ({ id, lecturer, review, likes, dislikes, courseId }: CourseReview) => {
+  // console.log(id, lecturer, review, likes, dislikes, courseId);
   const boxBG = useColorModeValue('white', 'gray.600')
   return (
     <Box mt="5" bg={boxBG} borderWidth='1px' borderRadius='lg' shadow='md'>
@@ -31,7 +31,7 @@ const Review = ({ lecturer, review, likes, dislikes, courseId }: CourseReview) =
       <Divider orientation='horizontal'></Divider>
 
       <Box padding='3'>
-        <Box ><Text>{review}</Text></Box>
+        <Box><Text>{review}</Text></Box>
       </Box>
 
       {/* <Flex padding={3}>

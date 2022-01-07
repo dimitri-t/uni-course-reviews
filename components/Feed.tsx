@@ -7,9 +7,9 @@ const Feed = ({ reviews }) => {
     <Box>
       <Stack spacing={8}>
         {reviews.length !== 0 ?
-          reviews.map((r: CourseReview, i) => {
+          reviews.map((r: CourseReview) => {
             return (
-              <div key={i}>
+              <div key={r.id}>
                 <ReviewCard {...r} />
               </div>
             )
