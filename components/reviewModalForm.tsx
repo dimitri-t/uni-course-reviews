@@ -2,29 +2,7 @@ import React, { useState }  from "react"
 import ResizeTextarea from "react-textarea-autosize";
 import  { Button, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, 
         ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter } from "@chakra-ui/react"
-
-// Try using Prisma.CourseReviewInput type
-// but it complains for course
-interface ReviewInput {
-  lecturer?: string;
-  review: string;
-  courseId: number;
-}
-
-const saveReview = async (reviewData: ReviewInput) => {
-  // Handles the add review button by sending a post request to the api route
-  // Add a type to the data to avoid errors
-  
-  const response = await fetch('/api/createreview', {
-    method: 'POST',
-    body: JSON.stringify(reviewData)
-  });
-  console.log(response);
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-  return await response.json();
-}
+import createReview from "../helpers/createReview";
 
 const ModalForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -75,7 +53,7 @@ const ModalForm = () => {
                   review: review,
                   courseId: 1
                 };
-                saveReview(newReview);
+                createReview(newReview);
               } catch (err) {
                 console.log(err);
               }
