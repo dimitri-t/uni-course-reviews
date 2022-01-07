@@ -1,23 +1,20 @@
 import { StarIcon, ChevronUpIcon, ChevronDownIcon, ChatIcon } from "@chakra-ui/icons";
 import { Box, Text, Divider, SimpleGrid, Button, ButtonGroup, IconButton, Center, Flex, Spacer, useColorModeValue } from "@chakra-ui/react";
+import { CourseReview } from "@prisma/client";
 import { ReactElement } from "react";
 
-type reviewType = { date: string; author: string; dateCompleted: string; lecturer: string; difficulty: number; rating: number; review: string; }
-
-// TODO:
-// When a user presses the "Comments" button, a modal will popup, allowing users to see and add comments to the review
-
-const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, review}) => {
+const Review = ({ id, lecturer, review, likes, dislikes, courseId }: CourseReview) => {
+  // console.log(id, lecturer, review, likes, dislikes, courseId);
   const boxBG = useColorModeValue('white', 'gray.600')
   return (
-    <Box bg={boxBG} borderWidth='1px' borderRadius='lg' shadow='md'>
+    <Box mt="5" bg={boxBG} borderWidth='1px' borderRadius='lg' shadow='md'>
       <Box padding="3">
-        <Box> <Text fontSize='2xl' fontWeight='bold'>{author}</Text> </Box>
-        <Box> <Text fontSize='lg' fontWeight='bold'>Review Created: {date}</Text> </Box>
+        <Box> <Text fontSize='2xl' fontWeight='bold'>hEY</Text> </Box>
+        {/* <Box> <Text fontSize='lg' fontWeight='bold'>Review Created: {date}</Text> </Box> */}
       </Box>
       <Divider orientation='horizontal'></Divider>
 
-      <Box padding="3" alignContent={"center"}>
+      {/* <Box padding="3" alignContent={"center"}>
         <SimpleGrid columns={[2, null]} spacing={3}>
           <Box><Text fontWeight="bold">Term/Year Completed:</Text><Text>{dateCompleted}</Text></Box>
           <Box>
@@ -30,14 +27,14 @@ const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, revi
               {Array(5).fill('').map((_,i) => (<StarIcon key={i} color={i < rating ? 'yellow.400': 'gray.300'}></StarIcon>))}
           </Box>
         </SimpleGrid>
-      </Box>
+      </Box> */}
       <Divider orientation='horizontal'></Divider>
 
       <Box padding='3'>
-        <Box ><Text>{review}</Text></Box>
+        <Box><Text>{review}</Text></Box>
       </Box>
-      
-      <Flex padding={3}>
+
+      {/* <Flex padding={3}>
         <Button leftIcon={<ChatIcon/>}>Comments</Button>
         <Spacer />
         <ButtonGroup isAttached>
@@ -45,7 +42,7 @@ const Review = ({date, author, dateCompleted, lecturer, difficulty, rating, revi
           <Center paddingLeft={3} paddingRight={3}><Text fontSize='md'>56</Text></Center>
           <IconButton aria-label='Downvote' icon={<ChevronDownIcon/>} variant='outline' colorScheme='red'></IconButton>
         </ButtonGroup>
-      </Flex>
+      </Flex> */}
     </Box>
   )
 }
