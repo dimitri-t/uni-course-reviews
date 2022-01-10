@@ -6,6 +6,7 @@ import {
   Container,
 } from '@chakra-ui/react';
 import ThemeToggleButton from './ThemeToggleBtn';
+import SearchBar from './SearchBarComp';
 
 export default function NavBar() {
   return (
@@ -27,7 +28,7 @@ export default function NavBar() {
             ReviewR
           </Heading>
 
-          <Input mr="10" ml="10" placeholder='Search For a Course' />
+          <SearchBar />
           
           <ThemeToggleButton />
 

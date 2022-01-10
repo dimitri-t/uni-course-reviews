@@ -8,6 +8,10 @@ import prisma from '../helpers/client';
 
 import getCourse from '../helpers/getCourse';
 
+
+// Temp router import for button to direct to landing page
+import NextLink from 'next/link'
+
 export async function getServerSideProps() {
   // Load first instance of DB
   // Filter by University
@@ -45,6 +49,9 @@ const Page = ({ initialReviews }) => {
 
         </Box>
       </Box>
+      <NextLink href="/landing">
+        <Button>Testing Landing Search Page</Button>
+      </NextLink>
     </Container>
   )
 }
