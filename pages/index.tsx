@@ -1,12 +1,10 @@
 import { Container, Box, Button } from '@chakra-ui/react';
 import Feed from '../components/Feed';
-import React  from "react"
-import ModalForm from '../components/reviewModalForm'
+import React from "react";
+import AddReviewModalForm from '../components/AddReviewModalForm';
 
 import { useState } from 'react';
 import prisma from '../helpers/client';
-
-import getCourse from '../helpers/getCourse';
 
 export async function getServerSideProps() {
   // Load first instance of DB
@@ -31,16 +29,14 @@ enum Uni {
 // TODO: Add types
 const Page = ({ initialReviews }) => {
   const [reviews, setReviews] = useState(initialReviews);
+  console.log(reviews);
   return (
     <Container>
-      <Button colorScheme='blue' onClick={ async () => {
-        console.log('hey')
-        console.log(await getCourse('COMP1511'));
-      }}>Find Course</Button>
+
       <Box display={ { md: 'flex' } }> 
         <Box mt="5" flexGrow={ 1 }>
 
-          <ModalForm/>
+          <AddReviewModalForm reviews={reviews} setReviews={setReviews}/>
           <Feed reviews={ reviews } />
 
         </Box>

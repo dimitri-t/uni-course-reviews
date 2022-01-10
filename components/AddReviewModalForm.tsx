@@ -3,8 +3,9 @@ import ResizeTextarea from "react-textarea-autosize";
 import  { Button, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, 
         ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter } from "@chakra-ui/react"
 import createReview from "../helpers/createReview";
+import handleCreateReviewBtn from "../helpers/createReview";
 
-const ModalForm = () => {
+const ModalForm = ({ reviews, setReviews }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef();
   const finalRef = React.useRef();
@@ -53,7 +54,10 @@ const ModalForm = () => {
                   review: review,
                   courseId: 1
                 };
-                createReview(newReview);
+                
+                const res = await handleCreateReviewBtn(newReview);
+                setReviews([...reviews, res]);
+
               } catch (err) {
                 console.log(err);
               }

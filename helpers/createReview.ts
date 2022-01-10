@@ -4,7 +4,7 @@ interface ReviewInput {
   courseId: number;
 }
 
-const createReview = async (reviewData: ReviewInput) => {
+const handleCreateReviewBtn = async (reviewData: ReviewInput) => {
   // Handles the add review button by sending a post request to the api route
   // Add a type to the data to avoid errors
   
@@ -19,4 +19,4 @@ const createReview = async (reviewData: ReviewInput) => {
   return await response.json();
 }
 
-export default createReview;
+export default handleCreateReviewBtn;
