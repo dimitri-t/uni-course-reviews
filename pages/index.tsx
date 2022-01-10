@@ -5,6 +5,7 @@ import AddReviewModalForm from '../components/AddReviewModalForm';
 
 import { useState } from 'react';
 import prisma from '../helpers/client';
+import { CourseReview } from '@prisma/client';
 
 export async function getServerSideProps() {
   // Load first instance of DB
@@ -18,18 +19,17 @@ export async function getServerSideProps() {
   }
 }
 
-enum Uni {
-  MQC,
-  UNSW,
-  UTS,
-  USYD,
-  UWS
-}
+// enum Uni {
+//   MQC,
+//   UNSW,
+//   UTS,
+//   USYD,
+//   UWS
+// }
 
-// TODO: Add types
 const Page = ({ initialReviews }) => {
-  const [reviews, setReviews] = useState(initialReviews);
-  console.log(reviews);
+  const [reviews, setReviews] = useState<CourseReview[]>(initialReviews);
+
   return (
     <Container>
 
